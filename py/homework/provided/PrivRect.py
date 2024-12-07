@@ -1,3 +1,4 @@
+edited by dimitri this is a sample code for classes
 ##This program creates a class for rectangle with methods to calculate it's area and perimeter
 ##It also calculates the sum of area and perimeter. The data members are private.
 ##User will input the length and height in main() and the program allows the user to
