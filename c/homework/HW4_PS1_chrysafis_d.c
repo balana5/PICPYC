@@ -6,10 +6,9 @@
 /* Salary Business */
 /* */
 /****************************************************/
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 #define SIZE 6
 
 struct Employee {
@@ -38,21 +37,21 @@ int main() {
     struct Employee e[SIZE];
     float ts = 0, tr = 0, tn = 0;
 
-    // Load data into the struct and calculate initial values
+    // Load data, calculate raises, and print original array
     load(e, SIZE);
     ARate(e, SIZE);
     calcRaise(e, SIZE);
     total(e, SIZE, &ts, &tr, &tn);
 
-    // Print original array of structures
     printf("Original Array of Structure before Sorting\n\n");
     title();
     print(e, SIZE);
     printTotals(ts, tr, tn);
 
-    // Sort and print sorted array
+    // Sort and print the sorted array
     sort(e, SIZE);
     total(e, SIZE, &ts, &tr, &tn);
+
     printf("Array of Structure after Sorting\n\n");
     title();
     print(e, SIZE);
@@ -64,6 +63,7 @@ int main() {
     savetext(e, SIZE);
     gettext(e, SIZE);
     print(e, SIZE);
+    total(e, SIZE, &ts, &tr, &tn);
     printTotals(ts, tr, tn);
 
     // Binary file operations
@@ -72,25 +72,26 @@ int main() {
     savebn(e, SIZE);
     getbn(e, SIZE);
     print(e, SIZE);
+    total(e, SIZE, &ts, &tr, &tn);
     printTotals(ts, tr, tn);
 
     return 0;
 }
 
 void load(struct Employee e[], int n) {
-    const char *names[] = {"Susan", "Jim", "Gloria", "Ros", "Ben", "Tim"};
-    const float salaries[] = {25000, 30000, 35000, 40000, 40001, 45000};
     for (int i = 0; i < n; i++) {
-        strcpy(e[i].name, names[i]);
-        e[i].sal = salaries[i];
+        printf("Enter the employee's name: ");
+        scanf("%s", e[i].name);
+        printf("Enter salary: ");
+        scanf("%f", &e[i].sal);
     }
 }
 
 void ARate(struct Employee e[], int n) {
     for (int i = 0; i < n; i++) {
-        if (e[i].sal > 0 && e[i].sal < 30000)
+        if (e[i].sal < 30000.0)
             e[i].rate = 7.0;
-        else if (e[i].sal >= 30000 && e[i].sal <= 40000)
+        else if (e[i].sal <= 40000.0)
             e[i].rate = 5.5;
         else
             e[i].rate = 4.0;
@@ -126,59 +127,56 @@ void total(struct Employee e[], int n, float *ts, float *tr, float *tn) {
     }
 }
 
-void title() {
+void title()
+{
     printf("\t\t\tCalculation of Salary Raises\n\n");
-    printf("Employee\tSalary\t\tRate %%\tRaise\t\tNew Salary\n\n");
+    printf("Employee\t"); printf("Salary\t\t"); printf("Rate %\t"); printf(" Raise\t\t");
+    printf("New Salary\n\n");
 }
-
-void print(struct Employee e[], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%s\t\t%10.2f\t%4.2f\t%8.2f\t%8.2f\n",
-               e[i].name, e[i].sal, e[i].rate, e[i].raise, e[i].newSal);
+void print(struct Employee e[], int n)
+{
+    int i;
+    for(i = 0; i < n; i++)
+    {
+        printf("%s\t\t", e[i].name); printf("%10.2f\t", e[i].sal); printf("%4.2f\t", e[i].rate);
+        printf("%8.2f\t", e[i].raise); printf("%8.2f\t\n", e[i].newSal);
     }
 }
-
-void printTotals(float ts, float tr, float tn) {
-    printf("Total\t\t%10.2f\t\t%8.2f\t%8.2f\n\n", ts, tr, tn);
+void printTotals(float ts, float tr, float tn)
+{
+    printf("Total\t\t"); printf("%10.2f\t\t", ts); printf("%8.2f\t", tr); printf("%8.2f\n\n",
+                                                                                 tn);
 }
+
 
 void savetext(struct Employee e[], int n) {
-    FILE *file = fopen("employees.txt", "w");
-    if (file) {
-        for (int i = 0; i < n; i++) {
-            fprintf(file, "%s %.2f %.2f %.2f %.2f\n",
-                    e[i].name, e[i].sal, e[i].rate, e[i].raise, e[i].newSal);
-        }
-        fclose(file);
+    FILE *fp = fopen("employees.txt", "w");
+    for (int i = 0; i < n; i++) {
+        fprintf(fp, "%s %.2f %.2f %.2f %.2f\n", e[i].name, e[i].sal, e[i].rate, e[i].raise, e[i].newSal);
     }
+    fclose(fp);
 }
 
 void gettext(struct Employee e[], int n) {
-    FILE *file = fopen("employees.txt", "r");
-    if (file) {
-        for (int i = 0; i < n; i++) {
-            fscanf(file, "%s %f %f %f %f",
-                   e[i].name, &e[i].sal, &e[i].rate, &e[i].raise, &e[i].newSal);
-        }
-        fclose(file);
+    FILE *fp = fopen("employees.txt", "r");
+    for (int i = 0; i < n; i++) {
+        fscanf(fp, "%s %f %f %f %f", e[i].name, &e[i].sal, &e[i].rate, &e[i].raise, &e[i].newSal);
     }
+    fclose(fp);
 }
 
 void savebn(struct Employee e[], int n) {
-    FILE *file = fopen("employees.bin", "wb");
-    if (file) {
-        fwrite(e, sizeof(struct Employee), n, file);
-        fclose(file);
-    }
+    FILE *fp = fopen("employees.bin", "wb");
+    fwrite(e, sizeof(struct Employee), n, fp);
+    fclose(fp);
 }
 
 void getbn(struct Employee e[], int n) {
-    FILE *file = fopen("employees.bin", "rb");
-    if (file) {
-        fread(e, sizeof(struct Employee), n, file);
-        fclose(file);
-    }
+    FILE *fp = fopen("employees.bin", "rb");
+    fread(e, sizeof(struct Employee), n, fp);
+    fclose(fp);
 }
+
 
 /*
 Sample Output:
