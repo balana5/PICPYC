@@ -26,6 +26,7 @@ int main() {
     int arr[size];
 
     read_array(arr, size);
+    printf("\n");
     printf("The elements of the array are:\n");
     display_array(arr, size);
 
@@ -35,6 +36,7 @@ int main() {
 
     return 0;
 }
+
 
 void read_array(int arr[], int size) {
     for (int i = 0; i < size; i++) {
@@ -50,8 +52,10 @@ void display_array(int arr[], int size) {
     printf("\n");
 }
 
+
 void interchange_largest_smallest(int arr[], int size) {
-    int max_idx = 0, min_idx = 0;
+    int max_idx = 0;
+    int min_idx = 0;
 
     for (int i = 1; i < size; i++) {
         if (arr[i] > arr[max_idx]) max_idx = i;
@@ -62,7 +66,6 @@ void interchange_largest_smallest(int arr[], int size) {
     arr[max_idx] = arr[min_idx];
     arr[min_idx] = temp;
 }
-
 /* Test Runs
 Test Run 1:
 Enter the desired size of the array: 5
@@ -71,8 +74,10 @@ Enter a number for position 1: 6
 Enter a number for position 2: 3
 Enter a number for position 3: 7
 Enter a number for position 4: 9
+
 The elements of the array are:
 arr[0]=3 arr[1]=6 arr[2]=3 arr[3]=7 arr[4]=9
+
 The elements of the array after the interchange are:
 arr[0]=9 arr[1]=6 arr[2]=3 arr[3]=7 arr[4]=3
 
@@ -82,8 +87,10 @@ Enter a number for position 0: 10
 Enter a number for position 1: 15
 Enter a number for position 2: 2
 Enter a number for position 3: 8
+
 The elements of the array are:
 arr[0]=10 arr[1]=15 arr[2]=2 arr[3]=8
+
 The elements of the array after the interchange are:
 arr[0]=2 arr[1]=15 arr[2]=10 arr[3]=8
 
@@ -95,8 +102,10 @@ Enter a number for position 2: 3
 Enter a number for position 3: 6
 Enter a number for position 4: 1
 Enter a number for position 5: 4
+
 The elements of the array are:
 arr[0]=5 arr[1]=9 arr[2]=3 arr[3]=6 arr[4]=1 arr[5]=4
+
 The elements of the array after the interchange are:
 arr[0]=1 arr[1]=9 arr[2]=3 arr[3]=6 arr[4]=5 arr[5]=4
 */
@@ -107,11 +116,11 @@ arr[0]=1 arr[1]=9 arr[2]=3 arr[3]=6 arr[4]=5 arr[5]=4
 /* in an array                                   */
 /**************************************************/
 
-#include<stdio.h>
+#include <stdio.h>
 
 void read_array(int arr[], int size);
 void display_array(int arr[], int size);
-int second_largest(int arr[], int size);
+void find_largest_and_second_largest(int arr[], int size, int *largest, int *second);
 
 int main() {
     int size;
@@ -122,10 +131,15 @@ int main() {
     int arr[size];
 
     read_array(arr, size);
-    printf("The numbers you entered are:\n");
+    printf("\n");
+    printf("The numbers you entered are: ");
     display_array(arr, size);
 
-    printf("The second largest of these numbers is: %d\n", second_largest(arr, size));
+    int largest, second_largest;
+    find_largest_and_second_largest(arr, size, &largest, &second_largest);
+
+    printf("The largest of these numbers is: %d\n", largest);
+    printf("The second largest of these numbers is: %d\n", second_largest);
 
     return 0;
 }
@@ -144,19 +158,26 @@ void display_array(int arr[], int size) {
     printf("\n");
 }
 
-int second_largest(int arr[], int size) {
-    int largest = arr[0], second = -1;
-
-    for (int i = 1; i < size; i++) {
-        if (arr[i] > largest) {
-            second = largest;
-            largest = arr[i];
-        } else if (arr[i] > second && arr[i] != largest) {
-            second = arr[i];
-        }
+void find_largest_and_second_largest(int arr[], int size, int *largest, int *second) {
+    if (size < 2) {
+        // Handle the case where there aren't enough elements
+        *largest = *second = -1;
+        return;
     }
 
-    return second;
+    // Initialize largest and second largest
+    *largest = (arr[0] > arr[1]) ? arr[0] : arr[1];
+    *second = (arr[0] < arr[1]) ? arr[0] : arr[1];
+
+    // Start iterating from the third element
+    for (int i = 2; i < size; i++) {
+        if (arr[i] > *largest) {
+            *second = *largest;
+            *largest = arr[i];
+        } else if (arr[i] > *second && arr[i] != *largest) {
+            *second = arr[i];
+        }
+    }
 }
 
 /* Test Runs
@@ -168,8 +189,10 @@ Enter the number: 60
 Enter the number: 34
 Enter the number: 20
 Enter the number: 46
+
 The numbers you entered are:
 10 35 60 34 20 46
+The largest of these numbers is: 60
 The second largest of these numbers is: 46
 
 Test Run 2:
@@ -179,8 +202,10 @@ Enter the number: 50
 Enter the number: 15
 Enter the number: 5
 Enter the number: 10
+
 The numbers you entered are:
 25 50 15 5 10
+The largest of these numbers is: 50
 The second largest of these numbers is: 25
 
 Test Run 3:
@@ -189,8 +214,10 @@ Enter the number: 100
 Enter the number: 90
 Enter the number: 80
 Enter the number: 70
+
 The numbers you entered are:
 100 90 80 70
+The largest of these numbers is: 100
 The second largest of these numbers is: 90
 */
 
@@ -226,11 +253,13 @@ int main() {
     return 0;
 }
 
+
 void read_array(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         scanf("%d", &arr[i]);
     }
 }
+
 
 void display_array(int arr[], int size) {
     for (int i = 0; i < size; i++) {
@@ -238,6 +267,7 @@ void display_array(int arr[], int size) {
     }
     printf("\n");
 }
+
 
 bool find_duplicates(int arr[], int size) {
     bool found = false;
@@ -297,10 +327,12 @@ Duplicate number 10 found at location 0 and 3
 
 void read_and_count_text();
 
+
 int main() {
     read_and_count_text();
     return 0;
 }
+
 
 void read_and_count_text() {
     char ch;
@@ -358,6 +390,7 @@ int main() {
     return 0;
 }
 
+
 int count_words(char sentence[]) {
     int count = 0, in_word = 0;
     for (int i = 0; sentence[i] != '\0'; i++) {
@@ -407,6 +440,7 @@ int main() {
     return 0;
 }
 
+
 void replace_commas(char text[]) {
     for (int i = 0; text[i] != '\0'; i++) {
         if (text[i] == ',') {
@@ -439,6 +473,7 @@ The copied text is: Apples; bananas; and cherries
 
 int count_pattern_occurrences(char text[], char pattern[]);
 
+
 int main() {
     char text[100], pattern[100];
 
@@ -458,6 +493,7 @@ int main() {
 
     return 0;
 }
+
 
 int count_pattern_occurrences(char text[], char pattern[]) {
     int count = 0, i = 0, j = 0;
