@@ -52,10 +52,40 @@ with open("tea.txt", "r") as file:
 # Create dictionary for tea sales
 tea_sales = {}
 
+tea_sales = {}
+
 for line in lines:
-    parts = line.strip().split(":")
-    tea_name = parts[0]
-    sales = [float(value) for value in parts[1:]]
+    tea_name = ''
+    sales = []
+    i = 0
+
+    # Extract tea_name (everything before ':')
+    while i < len(line) and line[i] != ':':
+        tea_name += line[i]
+        i += 1
+
+    # Skip over the ':' character
+    i += 1
+
+    # Extract the sales values (everything after ':')
+    value = ''
+    while i < len(line):
+        if line[i] == ':':  # If we find a colon, we complete the current value and start a new one
+            if value:
+                sales.append(float(value))
+                value = ''
+        elif line[i] == ' ' or i == len(line) - 1:  # Space or end of line
+            if value:
+                sales.append(float(value))
+                value = ''
+        else:
+            value += line[i]  # Collect digits for the current number
+        i += 1
+
+    # Handle the case where the last value is still pending (without space after it)
+    if value:
+        sales.append(float(value))
+
     tea_sales[tea_name] = sales
 
 # Generate report
@@ -65,13 +95,12 @@ total_store_sales = [0, 0, 0]
 for tea in sorted(tea_sales):
     sales = tea_sales[tea]
     total = sum(sales)
-    print(f"{tea:<10} {sales[0]:.2f} {sales[1]:.2f} {sales[2]:.2f} {total:.2f}")
+    print(f"{tea:<10} {sales[0]:10.2f} {sales[1]:10.2f} {sales[2]:10.2f} {total:10.2f}")
     for i in range(3):
         total_store_sales[i] += sales[i]
 
 # Print total store sales
-print(f"{'':<10} {total_store_sales[0]:.2f} {total_store_sales[1]:.2f} {total_store_sales[2]:.2f}")
-
+print(f"{'':<10} {total_store_sales[0]:10.2f} {total_store_sales[1]:10.2f} {total_store_sales[2]:10.2f}")
 ## Test Run 1
 ## Ceylon     6700.10 5012.45 6011.00 17723.55
 ## Earl Grey  10225.25 9025.00 9505.00 28755.25
