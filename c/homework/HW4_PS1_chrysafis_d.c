@@ -78,7 +78,9 @@ int main() {
     return 0;
 }
 
-void load(struct Employee e[], int n) {
+
+void load(struct Employee e[], int n)
+{
     for (int i = 0; i < n; i++) {
         printf("Enter the employee's name: ");
         scanf("%s", e[i].name);
@@ -87,25 +89,34 @@ void load(struct Employee e[], int n) {
     }
 }
 
-void ARate(struct Employee e[], int n) {
+
+void ARate(struct Employee e[], int n)
+{
     for (int i = 0; i < n; i++) {
-        if (e[i].sal < 30000.0)
+        if (e[i].sal < 30000.0) {
             e[i].rate = 7.0;
-        else if (e[i].sal <= 40000.0)
+        }
+        else if (e[i].sal <= 40000.0) {
             e[i].rate = 5.5;
-        else
+        }
+        else {
             e[i].rate = 4.0;
+        }
     }
 }
 
-void calcRaise(struct Employee e[], int n) {
+
+void calcRaise(struct Employee e[], int n)
+{
     for (int i = 0; i < n; i++) {
         e[i].raise = e[i].sal * e[i].rate / 100;
         e[i].newSal = e[i].sal + e[i].raise;
     }
 }
 
-void sort(struct Employee e[], int n) {
+
+void sort(struct Employee e[], int n)
+{
     struct Employee temp;
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
@@ -118,7 +129,9 @@ void sort(struct Employee e[], int n) {
     }
 }
 
-void total(struct Employee e[], int n, float *ts, float *tr, float *tn) {
+
+void total(struct Employee e[], int n, float *ts, float *tr, float *tn)
+{
     *ts = *tr = *tn = 0;
     for (int i = 0; i < n; i++) {
         *ts += e[i].sal;
@@ -127,12 +140,15 @@ void total(struct Employee e[], int n, float *ts, float *tr, float *tn) {
     }
 }
 
+
 void title()
 {
     printf("\t\t\tCalculation of Salary Raises\n\n");
     printf("Employee\t"); printf("Salary\t\t"); printf("Rate %\t"); printf(" Raise\t\t");
     printf("New Salary\n\n");
 }
+
+
 void print(struct Employee e[], int n)
 {
     int i;
@@ -142,6 +158,8 @@ void print(struct Employee e[], int n)
         printf("%8.2f\t", e[i].raise); printf("%8.2f\t\n", e[i].newSal);
     }
 }
+
+
 void printTotals(float ts, float tr, float tn)
 {
     printf("Total\t\t"); printf("%10.2f\t\t", ts); printf("%8.2f\t", tr); printf("%8.2f\n\n",
@@ -149,7 +167,8 @@ void printTotals(float ts, float tr, float tn)
 }
 
 
-void savetext(struct Employee e[], int n) {
+void savetext(struct Employee e[], int n)
+{
     FILE *fp = fopen("employees.txt", "w");
     for (int i = 0; i < n; i++) {
         fprintf(fp, "%s %.2f %.2f %.2f %.2f\n", e[i].name, e[i].sal, e[i].rate, e[i].raise, e[i].newSal);
@@ -157,7 +176,9 @@ void savetext(struct Employee e[], int n) {
     fclose(fp);
 }
 
-void gettext(struct Employee e[], int n) {
+
+void gettext(struct Employee e[], int n)
+{
     FILE *fp = fopen("employees.txt", "r");
     for (int i = 0; i < n; i++) {
         fscanf(fp, "%s %f %f %f %f", e[i].name, &e[i].sal, &e[i].rate, &e[i].raise, &e[i].newSal);
@@ -165,13 +186,17 @@ void gettext(struct Employee e[], int n) {
     fclose(fp);
 }
 
-void savebn(struct Employee e[], int n) {
+
+void savebn(struct Employee e[], int n)
+{
     FILE *fp = fopen("employees.bin", "wb");
     fwrite(e, sizeof(struct Employee), n, fp);
     fclose(fp);
 }
 
-void getbn(struct Employee e[], int n) {
+
+void getbn(struct Employee e[], int n)
+{
     FILE *fp = fopen("employees.bin", "rb");
     fread(e, sizeof(struct Employee), n, fp);
     fclose(fp);
