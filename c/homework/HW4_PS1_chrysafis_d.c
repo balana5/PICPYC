@@ -204,7 +204,6 @@ void getbn(struct Employee e[], int n)
 
 
 /*
-Sample Output:
 Enter the employee's name: Susan
 Enter salary: 25000
 Enter the employee's name: Jim
@@ -217,62 +216,64 @@ Enter the employee's name: Ben
 Enter salary: 40001
 Enter the employee's name: Tim
 Enter salary: 45000
-
 Original Array of Structure before Sorting
 
-            Calculation of Salary Raises
+                        Calculation of Salary Raises
 
-Employee        Salary          Rate %   Raise           New Salary
+Employee        Salary          Rate     Raise          New Salary
 
-Susan           25000.00        7.00    1750.00         26750.00
-Jim             30000.00        5.50    1650.00         31650.00
-Gloria          35000.00        5.50    1925.00         36925.00
-Ros             40000.00        5.50    2200.00         42200.00
-Ben             40001.00        4.00    1600.04         41601.04
-Tim             45000.00        4.00    1800.00         46800.00
-Total           215001.00       10925.04                225926.03
+Susan             25000.00      7.00     1750.00        26750.00        
+Jim               30000.00      5.50     1650.00        31650.00        
+Gloria            35000.00      5.50     1925.00        36925.00        
+Ros               40000.00      5.50     2200.00        42200.00        
+Ben               40001.00      4.00     1600.04        41601.04        
+Tim               45000.00      4.00     1800.00        46800.00        
+Total            215001.00              10925.04        225926.03
 
 Array of Structure after Sorting
 
-            Calculation of Salary Raises
+                        Calculation of Salary Raises
 
-Employee        Salary          Rate %   Raise           New Salary
+Employee        Salary          Rate     Raise          New Salary
 
-Ben             40001.00        4.00    1600.04         41601.04
-Gloria          35000.00        5.50    1925.00         36925.00
-Jim             30000.00        5.50    1650.00         31650.00
-Ros             40000.00        5.50    2200.00         42200.00
-Susan           25000.00        7.00    1750.00         26750.00
-Tim             45000.00        4.00    1800.00         46800.00
-Total           215001.00       10925.04                225926.03
+Ben               40001.00      4.00     1600.04        41601.04        
+Gloria            35000.00      5.50     1925.00        36925.00        
+Jim               30000.00      5.50     1650.00        31650.00        
+Ros               40000.00      5.50     2200.00        42200.00        
+Susan             25000.00      7.00     1750.00        26750.00        
+Tim               45000.00      4.00     1800.00        46800.00        
+Total            215001.00              10925.04        225926.03
+
 
 
 From Save Text file
 
-            Calculation of Salary Raises
+                        Calculation of Salary Raises
 
-Employee        Salary          Rate %   Raise           New Salary
+Employee        Salary          Rate     Raise          New Salary
 
-Ben             40001.00        4.00    1600.04         41601.04
-Gloria          35000.00        5.50    1925.00         36925.00
-Jim             30000.00        5.50    1650.00         31650.00
-Ros             40000.00        5.50    2200.00         42200.00
-Susan           25000.00        7.00    1750.00         26750.00
-Tim             45000.00        4.00    1800.00         46800.00
-Total           215001.00       10925.04                225926.03
+Ben               40001.00      4.00     1600.04        41601.04        
+Gloria            35000.00      5.50     1925.00        36925.00        
+Jim               30000.00      5.50     1650.00        31650.00        
+Ros               40000.00      5.50     2200.00        42200.00        
+Susan             25000.00      7.00     1750.00        26750.00        
+Tim               45000.00      4.00     1800.00        46800.00        
+Total            215001.00              10925.04        225926.03
+
 
 
 From Save Binary file
 
-            Calculation of Salary Raises
+                        Calculation of Salary Raises
 
-Employee        Salary          Rate %   Raise           New Salary
+Employee        Salary          Rate     Raise          New Salary
 
-Ben             40001.00        4.00    1600.04         41601.04
-Gloria          35000.00        5.50    1925.00         36925.00
-Jim             30000.00        5.50    1650.00         31650.00
-Ros             40000.00        5.50    2200.00         42200.00
-Susan           25000.00        7.00    1750.00         26750.00
-Tim             45000.00        4.00    1800.00         46800.00
-Total           215001.00       10925.04                225926.03
+Ben               40001.00      4.00     1600.04        41601.04        
+Gloria            35000.00      5.50     1925.00        36925.00        
+Jim               30000.00      5.50     1650.00        31650.00        
+Ros               40000.00      5.50     2200.00        42200.00        
+Susan             25000.00      7.00     1750.00        26750.00        
+Tim               45000.00      4.00     1800.00        46800.00        
+Total            215001.00              10925.04        225926.03
+
 */
