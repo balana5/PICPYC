@@ -6,59 +6,87 @@
 # and update the loan amount using the same object.
 
 class Loan:
-    # Initialize the Loan class with private fields for interest rate, loan term, loan amount, and borrower's name.
+    """
+    Represents a loan with details like interest rate, term, amount, and borrower.
+    """
+
     def __init__(self, annualInterestRate=2.5, numberOfYears=1, loanAmount=1000.0, borrowerName=""):
+        """
+        Initializes the loan with the given values.
+        """
         self.__annualInterestRate = annualInterestRate
         self.__numberOfYears = numberOfYears
         self.__loanAmount = loanAmount
         self.__borrowerName = borrowerName
 
-    # Getter for annual interest rate.
     def getAnnualInterestRate(self):
+        """
+        Returns the annual interest rate.
+        """
         return self.__annualInterestRate
 
-    # Getter for number of years.
     def getNumberOfYears(self):
+        """
+        Returns the loan term in years.
+        """
         return self.__numberOfYears
 
-    # Getter for loan amount.
     def getLoanAmount(self):
+        """
+        Returns the loan amount.
+        """
         return self.__loanAmount
 
-    # Getter for borrower's name.
     def getBorrowerName(self):
+        """
+        Returns the borrower's name.
+        """
         return self.__borrowerName
 
-    # Setter for annual interest rate.
     def setAnnualInterestRate(self, rate):
+        """
+        Sets the annual interest rate.
+        """
         self.__annualInterestRate = rate
 
-    # Setter for number of years.
     def setNumberOfYears(self, years):
+        """
+        Sets the loan term in years.
+        """
         self.__numberOfYears = years
 
-    # Setter for loan amount.
     def setLoanAmount(self, amount):
+        """
+        Sets the loan amount.
+        """
         self.__loanAmount = amount
 
-    # Setter for borrower's name.
     def setBorrowerName(self, name):
+        """
+        Sets the borrower's name.
+        """
         self.__borrowerName = name
 
-    # Calculate and return the monthly payment.
     def getMonthlyPayment(self):
+        """
+        Calculates and returns the monthly payment.
+        """
         monthlyInterestRate = self.__annualInterestRate / 1200
         monthlyPayment = (self.__loanAmount * monthlyInterestRate /
                           (1 - (1 / (1 + monthlyInterestRate) ** (self.__numberOfYears * 12))))
         return monthlyPayment
 
-    # Calculate and return the total payment.
     def getTotalPayment(self):
+        """
+        Calculates and returns the total payment.
+        """
         return self.getMonthlyPayment() * self.__numberOfYears * 12
 
 
-# Main function to test the Loan class and allow user interaction.
 def main():
+    """
+    Main function to input loan details, calculate, and display payments.
+    """
     # Prompt user for loan details.
     print("Enter yearly interest rate: ", end="")
     annualInterestRate = float(input())
@@ -72,12 +100,12 @@ def main():
     # Create a Loan object with the entered details.
     loan = Loan(annualInterestRate, numberOfYears, loanAmount, borrowerName)
 
-    # Display the initial loan details.
+    # Display the loan details.
     print(f"The loan is for {loan.getBorrowerName()}")
     print(f"The monthly payment is {loan.getMonthlyPayment():.2f}")
-    print(f"The total payment is {loan.getTotalPayment():.2f}")
+    print(f"The total payment is {loan.getTotalPayment():.2f}\n")
 
-    # Allow the user to update the loan amount.
+    # Allow user to update the loan amount.
     while True:
         print("Do you want to change the loan amount? Y for yes or enter to quit: ", end="")
         response = input().lower()
@@ -97,6 +125,7 @@ def main():
 if __name__ == "__main__":
     main()
 
+
 # Test runs as required.
 
 ## Test Run 1
@@ -107,11 +136,13 @@ if __name__ == "__main__":
 ## The loan is for John Jones
 ## The monthly payment is 17.75
 ## The total payment is 1064.84
+##
 ## Do you want to change the loan amount? Y for yes or enter to quit: y
 ## Enter new loan amount: 5000
 ## The loan is for John Jones
 ## The monthly payment is 88.74
 ## The total payment is 5324.21
+##
 ## Do you want to change the loan amount? Y for yes or enter to quit:
 
 ## Test Run 2
