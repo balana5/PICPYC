@@ -95,11 +95,9 @@ void ARate(struct Employee e[], int n)
     for (int i = 0; i < n; i++) {
         if (e[i].sal < 30000.0) {
             e[i].rate = 7.0;
-        }
-        else if (e[i].sal <= 40000.0) {
+        } else if (e[i].sal <= 40000.0) {
             e[i].rate = 5.5;
-        }
-        else {
+        } else {
             e[i].rate = 4.0;
         }
     }
