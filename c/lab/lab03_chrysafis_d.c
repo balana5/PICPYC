@@ -334,27 +334,34 @@ Duplicate number 10 found at location 0 and 3
 
 void read_and_count_text();
 
-
 int main() {
     read_and_count_text();
     return 0;
 }
 
-
 void read_and_count_text() {
     char ch;
     int count = 0;
+    char text[1000];  // To store the text entered by the user
+    int i = 0;
+
     printf("Enter * to end\n");
     printf("Enter the text: ");
-    
+
+    // Read and store characters, excluding * and newlines
     while ((ch = getchar()) != '*') {
-        putchar(ch);  // Prints the character
-        count++;      // Increments the character count
+        if (ch != '\n') {  // Ignore newline characters
+            text[i++] = ch;  // Store the character
+            count++;          // Increment the character count
+        }
     }
-    
-    printf("\nThe text is: ");
-    printf("\nThe count of the characters is: %d\n", count);
+    text[i] = '\0';  // Null-terminate the string
+
+    // Print the entered text and count
+    printf("The text is: %s\n", text);
+    printf("The count of the characters is: %d\n", count);
 }
+
 
 /* Test Runs
 Test Run 1:
