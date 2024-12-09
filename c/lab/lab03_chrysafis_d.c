@@ -111,10 +111,11 @@ Enter a number for position 4: 1
 Enter a number for position 5: 4
 
 The elements of the array are:
-arr[0]=5 arr[1]=9 arr[2]=3 arr[3]=6 arr[4]=1 arr[5]=4
+arr[0]=5 arr[1]=9 arr[2]=3 arr[3]=6 arr[4]=1 arr[5]=4 
 
 The elements of the array after the interchange are:
-arr[0]=1 arr[1]=9 arr[2]=3 arr[3]=6 arr[4]=5 arr[5]=4
+arr[0]=5 arr[1]=1 arr[2]=3 arr[3]=6 arr[4]=9 arr[5]=4 
+
 */
 
 /**************************************************/
