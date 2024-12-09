@@ -117,8 +117,8 @@ def main():
 
         # Display updated loan details.
         print(f"The loan is for {loan.getBorrowerName()}")
-        print(f"The monthly payment is {loan.getMonthlyPayment():.2f}")
-        print(f"The total payment is {loan.getTotalPayment():.2f}")
+        print(f"The monthly payment is {loan.getMonthlyPayment():,.2f}")
+        print(f"The total payment is {loan.getTotalPayment():,.2f}")
 
 
 # Entry point of the program.
@@ -135,13 +135,13 @@ if __name__ == "__main__":
 ## Enter a borrower's name: John Jones
 ## The loan is for John Jones
 ## The monthly payment is 17.75
-## The total payment is 1064.84
+## The total payment is 1,064.84
 ##
 ## Do you want to change the loan amount? Y for yes or enter to quit: y
 ## Enter new loan amount: 5000
 ## The loan is for John Jones
 ## The monthly payment is 88.74
-## The total payment is 5324.21
+## The total payment is 5,324.21
 ##
 ## Do you want to change the loan amount? Y for yes or enter to quit:
 
@@ -152,7 +152,7 @@ if __name__ == "__main__":
 ## Enter a borrower's name: Alice Smith
 ## The loan is for Alice Smith
 ## The monthly payment is 44.24
-## The total payment is 2123.34
+## The total payment is 2,123.34
 
 ## Test Run 3
 ## Enter yearly interest rate: 5.0
@@ -161,7 +161,7 @@ if __name__ == "__main__":
 ## Enter a borrower's name: Bob Brown
 ## The loan is for Bob Brown
 ## The monthly payment is 44.95
-## The total payment is 1618.07
+## The total payment is 1,618.07
 
 ## Test Run 4
 ## Enter yearly interest rate: 4.5
@@ -170,7 +170,7 @@ if __name__ == "__main__":
 ## Enter a borrower's name: Carol White
 ## The loan is for Carol White
 ## The monthly payment is 51.91
-## The total payment is 6229.28
+## The total payment is 6,229.28
 
 ## Test Run 5
 ## Enter yearly interest rate: 3.75
@@ -179,4 +179,4 @@ if __name__ == "__main__":
 ## Enter a borrower's name: Dave Green
 ## The loan is for Dave Green
 ## The monthly payment is 37.04
-## The total payment is 3553.57
+## The total payment is 3,553.57
