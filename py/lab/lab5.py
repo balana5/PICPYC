@@ -52,8 +52,6 @@ with open("tea.txt", "r") as file:
 # Create dictionary for tea sales
 tea_sales = {}
 
-tea_sales = {}
-
 for line in lines:
     tea_name = ''
     sales = []
