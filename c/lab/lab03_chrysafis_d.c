@@ -59,8 +59,12 @@ void interchange_largest_smallest(int arr[], int size) {
     int min_idx = 0;
 
     for (int i = 1; i < size; i++) {
-        if (arr[i] > arr[max_idx]) max_idx = i;
-        if (arr[i] < arr[min_idx]) min_idx = i;
+        if (arr[i] > arr[max_idx]){
+            max_idx = i;
+        }
+        if (arr[i] < arr[min_idx]){
+            min_idx = i;
+        }
     }
 
     int temp = arr[max_idx];
