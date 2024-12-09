@@ -19,17 +19,20 @@ class Loan:
         self.__loanAmount = loanAmount
         self.__borrowerName = borrowerName
 
+    
     def getAnnualInterestRate(self):
         """
         Returns the annual interest rate.
         """
         return self.__annualInterestRate
 
+    
     def getNumberOfYears(self):
         """
         Returns the loan term in years.
         """
-        return self.__numberOfYears
+        re
+        turn self.__numberOfYears
 
     def getLoanAmount(self):
         """
@@ -37,36 +40,42 @@ class Loan:
         """
         return self.__loanAmount
 
+    
     def getBorrowerName(self):
         """
         Returns the borrower's name.
         """
         return self.__borrowerName
 
+    
     def setAnnualInterestRate(self, rate):
         """
         Sets the annual interest rate.
         """
         self.__annualInterestRate = rate
 
+    
     def setNumberOfYears(self, years):
         """
         Sets the loan term in years.
         """
         self.__numberOfYears = years
 
+    
     def setLoanAmount(self, amount):
         """
         Sets the loan amount.
         """
         self.__loanAmount = amount
 
+    
     def setBorrowerName(self, name):
         """
         Sets the borrower's name.
         """
         self.__borrowerName = name
 
+    
     def getMonthlyPayment(self):
         """
         Calculates and returns the monthly payment.
@@ -76,6 +85,7 @@ class Loan:
                           (1 - (1 / (1 + monthlyInterestRate) ** (self.__numberOfYears * 12))))
         return monthlyPayment
 
+    
     def getTotalPayment(self):
         """
         Calculates and returns the total payment.
