@@ -19,20 +19,18 @@ class Loan:
         self.__loanAmount = loanAmount
         self.__borrowerName = borrowerName
 
-    
     def getAnnualInterestRate(self):
         """
         Returns the annual interest rate.
         """
         return self.__annualInterestRate
 
-    
     def getNumberOfYears(self):
         """
         Returns the loan term in years.
         """
-        re
-        turn self.__numberOfYears
+        return
+        self.__numberOfYears
 
     def getLoanAmount(self):
         """
@@ -40,42 +38,36 @@ class Loan:
         """
         return self.__loanAmount
 
-    
     def getBorrowerName(self):
         """
         Returns the borrower's name.
         """
         return self.__borrowerName
 
-    
     def setAnnualInterestRate(self, rate):
         """
         Sets the annual interest rate.
         """
         self.__annualInterestRate = rate
 
-    
     def setNumberOfYears(self, years):
         """
         Sets the loan term in years.
         """
         self.__numberOfYears = years
 
-    
     def setLoanAmount(self, amount):
         """
         Sets the loan amount.
         """
         self.__loanAmount = amount
 
-    
     def setBorrowerName(self, name):
         """
         Sets the borrower's name.
         """
         self.__borrowerName = name
 
-    
     def getMonthlyPayment(self):
         """
         Calculates and returns the monthly payment.
@@ -85,7 +77,6 @@ class Loan:
                           (1 - (1 / (1 + monthlyInterestRate) ** (self.__numberOfYears * 12))))
         return monthlyPayment
 
-    
     def getTotalPayment(self):
         """
         Calculates and returns the total payment.
@@ -116,19 +107,26 @@ def main():
     print(f"The total payment is {loan.getTotalPayment():.2f}\n")
 
     # Allow user to update the loan amount.
-    while True:
+    response = "y"
+    continue_loan_change = True  # Flag to control the loop
+
+    while continue_loan_change:
         print("Do you want to change the loan amount? Y for yes or enter to quit: ", end="")
         response = input().lower()
-        if response != "y":
-            break
-        print("Enter new loan amount: ", end="")
-        newLoanAmount = float(input())
-        loan.setLoanAmount(newLoanAmount)
 
-        # Display updated loan details.
-        print(f"The loan is for {loan.getBorrowerName()}")
-        print(f"The monthly payment is {loan.getMonthlyPayment():,.2f}")
-        print(f"The total payment is {loan.getTotalPayment():,.2f}")
+        # Check if the user input is 'y' (case-insensitive)
+        if response == 'y':
+            print("Enter new loan amount: ", end="")
+            newLoanAmount = float(input())
+            loan.setLoanAmount(newLoanAmount)
+
+            # Display updated loan details.
+            print(f"The loan is for {loan.getBorrowerName()}")
+            print(f"The monthly payment is {loan.getMonthlyPayment():,.2f}")
+            print(f"The total payment is {loan.getTotalPayment():,.2f}")
+        else:
+            # If the user doesn't want to change, set the flag to False to exit the loop
+            continue_loan_change = False
 
 
 # Entry point of the program.
