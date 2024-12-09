@@ -45,6 +45,7 @@ void read_array(int arr[], int size) {
     }
 }
 
+
 void display_array(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         printf("arr[%d]=%d ", i, arr[i]);
@@ -66,6 +67,8 @@ void interchange_largest_smallest(int arr[], int size) {
     arr[max_idx] = arr[min_idx];
     arr[min_idx] = temp;
 }
+
+
 /* Test Runs
 Test Run 1:
 Enter the desired size of the array: 5
