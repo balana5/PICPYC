@@ -132,7 +132,9 @@ void sort(struct Employee e[], int n)
 
 void total(struct Employee e[], int n, float *ts, float *tr, float *tn)
 {
-    *ts = *tr = *tn = 0;
+    *ts = 0;
+    *tr = 0;
+    *tn = 0;
     for (int i = 0; i < n; i++) {
         *ts += e[i].sal;
         *tr += e[i].raise;
