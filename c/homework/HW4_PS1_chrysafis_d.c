@@ -11,6 +11,7 @@
 #include<string.h>
 #define SIZE 6
 
+// struct to tore the employee information
 struct Employee {
     char name[50];
     float sal;
@@ -79,6 +80,7 @@ int main() {
 }
 
 
+// allow to enter employee information (name/salary)
 void load(struct Employee e[], int n)
 {
     for (int i = 0; i < n; i++) {
@@ -90,6 +92,7 @@ void load(struct Employee e[], int n)
 }
 
 
+// computations for the rate 
 void ARate(struct Employee e[], int n)
 {
     for (int i = 0; i < n; i++) {
@@ -104,6 +107,7 @@ void ARate(struct Employee e[], int n)
 }
 
 
+// calculate the amount of raise for every employee
 void calcRaise(struct Employee e[], int n)
 {
     for (int i = 0; i < n; i++) {
@@ -113,6 +117,7 @@ void calcRaise(struct Employee e[], int n)
 }
 
 
+// sort the given information about the employees
 void sort(struct Employee e[], int n)
 {
     struct Employee temp;
@@ -128,6 +133,7 @@ void sort(struct Employee e[], int n)
 }
 
 
+// give everything back for the total
 void total(struct Employee e[], int n, float *ts, float *tr, float *tn)
 {
     *ts = 0;
@@ -141,6 +147,7 @@ void total(struct Employee e[], int n, float *ts, float *tr, float *tn)
 }
 
 
+// print the title to make it look nice
 void title()
 {
     printf("\t\t\tCalculation of Salary Raises\n\n");
@@ -149,6 +156,7 @@ void title()
 }
 
 
+// print all of the critical information already generated
 void print(struct Employee e[], int n)
 {
     int i;
@@ -159,7 +167,7 @@ void print(struct Employee e[], int n)
     }
 }
 
-
+// print whatever totals have already been given
 void printTotals(float ts, float tr, float tn)
 {
     printf("Total\t\t"); printf("%10.2f\t\t", ts); printf("%8.2f\t", tr); printf("%8.2f\n\n",
@@ -167,6 +175,7 @@ void printTotals(float ts, float tr, float tn)
 }
 
 
+// file operations for saving to file
 void savetext(struct Employee e[], int n)
 {
     FILE *fp = fopen("employees.txt", "w");
@@ -177,6 +186,7 @@ void savetext(struct Employee e[], int n)
 }
 
 
+// get the text for the file operations as well
 void gettext(struct Employee e[], int n)
 {
     FILE *fp = fopen("employees.txt", "r");
@@ -187,6 +197,7 @@ void gettext(struct Employee e[], int n)
 }
 
 
+// save the binary file to it
 void savebn(struct Employee e[], int n)
 {
     FILE *fp = fopen("employees.bin", "wb");
@@ -195,6 +206,7 @@ void savebn(struct Employee e[], int n)
 }
 
 
+// read the binary file
 void getbn(struct Employee e[], int n)
 {
     FILE *fp = fopen("employees.bin", "rb");
