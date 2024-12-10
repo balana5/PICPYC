@@ -13,6 +13,7 @@
 
 #include<stdio.h>
 
+// prototypes
 void read_array(int arr[], int size);
 void display_array(int arr[], int size);
 void interchange_largest_smallest(int arr[], int size);
@@ -38,6 +39,7 @@ int main() {
 }
 
 
+// read the array
 void read_array(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         printf("Enter a number for position %d: ", i);
@@ -46,6 +48,7 @@ void read_array(int arr[], int size) {
 }
 
 
+// print/display the array
 void display_array(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         printf("arr[%d]=%d ", i, arr[i]);
@@ -54,6 +57,7 @@ void display_array(int arr[], int size) {
 }
 
 
+// switch the largest and smallest elements
 void interchange_largest_smallest(int arr[], int size) {
     int max_idx = 0;
     int min_idx = 0;
