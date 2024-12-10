@@ -36,7 +36,10 @@ void getbn(struct Employee e[], int n);
 
 int main() {
     struct Employee e[SIZE];
-    float ts = 0, tr = 0, tn = 0;
+    float ts,tr,tn;
+    ts = 0;
+    tr = 0;
+    tn = 0;
 
     // Load data, calculate raises, and print original array
     load(e, SIZE);
@@ -58,7 +61,7 @@ int main() {
     print(e, SIZE);
     printTotals(ts, tr, tn);
 
-    // Text file operations
+    //**************Section for text files*****************
     printf("\n\nFrom Save Text file\n\n");
     title();
     savetext(e, SIZE);
@@ -67,10 +70,12 @@ int main() {
     total(e, SIZE, &ts, &tr, &tn);
     printTotals(ts, tr, tn);
 
-    // Binary file operations
+    //**************Section for binary files*****************
+    
     printf("\n\nFrom Save Binary file\n\n");
     title();
     savebn(e, SIZE);
+    //retrieve data from binary file and print the data
     getbn(e, SIZE);
     print(e, SIZE);
     total(e, SIZE, &ts, &tr, &tn);
