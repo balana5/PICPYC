@@ -10,6 +10,7 @@ class Loan:
     Represents a loan with details like interest rate, term, amount, and borrower.
     """
 
+    
     def __init__(self, annualInterestRate=2.5, numberOfYears=1, loanAmount=1000.0, borrowerName=""):
         """
         Initializes the loan with the given values.
