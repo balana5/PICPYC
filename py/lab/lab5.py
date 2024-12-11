@@ -18,7 +18,7 @@ print("Key-Value Pairs:", list(grade.items()))
 
 # d. Print all key-value pairs sorted by key
 for key in sorted(grade):
-    print(f"Key: {key}, Value: {grade[key]}")
+    print(f"Ordered Key: {key}, Value: {grade[key]}")
 
 # e. Calculate and print the average value
 total = 0
@@ -28,16 +28,16 @@ for value in grade.values():
     count += 1
 average = total / count
 print("Average Value:", average)
-
+hello
 ## Test Run 1
 ## Keys: ['A', 'D', 'B', 'F', 'C']
 ## Values: [8, 3, 15, 2, 6]
 ## Key-Value Pairs: [('A', 8), ('D', 3), ('B', 15), ('F', 2), ('C', 6)]
-## Key: A, Value: 8
-## Key: B, Value: 15
-## Key: C, Value: 6
-## Key: D, Value: 3
-## Key: F, Value: 2
+## Ordered Key: A, Value: 8
+## Ordered Key: B, Value: 15
+## Ordered Key: C, Value: 6
+## Ordered Key: D, Value: 3
+## Ordered Key: F, Value: 2
 ## Average Value: 6.8
 
 
