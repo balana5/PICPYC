@@ -28,7 +28,7 @@ for value in grade.values():
     count += 1
 average = total / count
 print("Average Value:", average)
-hello
+
 ## Test Run 1
 ## Keys: ['A', 'D', 'B', 'F', 'C']
 ## Values: [8, 3, 15, 2, 6]
